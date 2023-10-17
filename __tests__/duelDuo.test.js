@@ -31,7 +31,7 @@ describe("Duel Duo tests", () => {
     );
 // Check that choices" div is no longer empty
     const updatedChoicesText = await updatedChoicesElement.getText();
-    expect(updatedChoicesText.trim()).not.toBe(""); // Ensure it's not empty after clicking
+    expect(updatedChoicesText.trim()).not.toBe("");
   });
   test("THREE: USer can only select 2 bots", async () => {
     await driver.get("http://localhost:8000");
