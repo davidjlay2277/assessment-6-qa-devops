@@ -1,4 +1,14 @@
 const express = require("express");
+// include and initialize the rollbar library with your access token
+var Rollbar = require('rollbar')
+var rollbar = new Rollbar({
+  accessToken: '1bcb276ecd21414fa8a964aa8c248dfd',
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+})
+// record a generic message and send it to Rollbar
+rollbar.log('Hello world!')
+
 const bots = require("./src/botsData");
 const shuffle = require("./src/shuffle");
 const playerRecord = {
@@ -7,12 +17,10 @@ const playerRecord = {
 };
 const app = express();
 
-//////DO I NEED CORS? /////////
-// const cors = require("cors");
-// app.use(cors());
-
 app.use(express.json());
-app.use(express.static("./public"));
+// app.use(express.static("./public"));
+app.use(express.static(`${__dirname}/public`))
+
 
 // Add up the total health of all the robots
 const calculateTotalHealth = (robots) =>

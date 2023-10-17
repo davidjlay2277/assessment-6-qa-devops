@@ -1,7 +1,6 @@
 {
   "name": "assessment-qa-devops",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "jest",
@@ -22,5 +21,7 @@
   },
   "devDependencies": {
     "chromedriver": "^118.0.0"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
