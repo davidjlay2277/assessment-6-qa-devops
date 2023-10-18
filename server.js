@@ -4,11 +4,12 @@ const {PORT} = process.env
 
 var Rollbar = require('rollbar')
 var rollbar = new Rollbar({
-  accessToken: '1bcb276ecd21414fa8a964aa8c248dfd',
+  accessToken: 'fb4a86e5a2b04deb9a54874f5c699d12',
   captureUncaught: true,
   captureUnhandledRejections: true,
 })
 rollbar.log('Hello world!')
+
 
 const bots = require("./src/botsData");
 const shuffle = require("./src/shuffle");
