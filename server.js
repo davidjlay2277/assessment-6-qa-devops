@@ -99,6 +99,17 @@ app.get("/api/player", (req, res) => {
   }
 });
 
+
+function logEndpointHitToRollbar(req, res, next) {
+  rollbar.log(`Endpoint ${req.path} was hit`);
+  next();
+}
+app.use(logEndpointHitToRollbar);
+app.use(rollbar.errorHandler());
+
+
 app.listen(PORT || 8000, () => {
   console.log(`Listening on ${PORT}`);
+  rollbar.info('Duel Duo App started');
+
 });
