@@ -114,8 +114,13 @@ app.use(logEndpointHitToRollbar);
 app.use(rollbar.errorHandler());
 
 
-app.listen(PORT || 8000, () => {
-  console.log(`Listening on ${PORT}`);
-  rollbar.info('Duel Duo App started');
+// app.listen(PORT || 8000, () => {
+//   console.log(`Listening on ${PORT}`);
+//   rollbar.info('Duel Duo App started');
+
+  app.listen(8000, () => {
+    console.log(`Listening on 8000`);
+    rollbar.info('Duel Duo App started');
+  
 
 });

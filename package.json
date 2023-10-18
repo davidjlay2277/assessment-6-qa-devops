@@ -6,7 +6,7 @@
     "test": "jest",
     "start": "npm-run-all -p nodemon browser-sync",
     "nodemon": "nodemon server.js",
-    "browser-sync": "browser-sync start --proxy localhost:8000 --files=**/*  --ignore=node_modules --reload-delay 10000 --no-ui --no-open"
+    "browser-sync": "browser-sync start --proxy localhost:8000 --files=**/*  --ignore=node_modules --reload-delay 10000 --no-ui"
   },
   "author": "",
   "license": "ISC",
@@ -21,7 +21,7 @@
     "selenium-webdriver": "^4.8.1"
   },
   "devDependencies": {
-    "chromedriver": "^118.0.0"
+    "chromedriver": "^118.0.1"
   },
   "keywords": [],
   "description": ""
