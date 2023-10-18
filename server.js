@@ -1,12 +1,13 @@
 const express = require("express");
-// include and initialize the rollbar library with your access token
+require("dotenv").config();
+const {PORT} = process.env
+
 var Rollbar = require('rollbar')
 var rollbar = new Rollbar({
   accessToken: '1bcb276ecd21414fa8a964aa8c248dfd',
   captureUncaught: true,
   captureUnhandledRejections: true,
 })
-// record a generic message and send it to Rollbar
 rollbar.log('Hello world!')
 
 const bots = require("./src/botsData");
@@ -98,6 +99,6 @@ app.get("/api/player", (req, res) => {
   }
 });
 
-app.listen(8000, () => {
-  console.log(`Listening on 8000`);
+app.listen(PORT || 8000, () => {
+  console.log(`Listening on ${PORT}`);
 });
