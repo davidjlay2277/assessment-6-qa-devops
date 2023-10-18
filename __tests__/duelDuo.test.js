@@ -12,12 +12,12 @@ afterEach(async () => {
 
 describe("Duel Duo tests", () => {
   test("ONE: page loads with title", async () => {
-    await driver.get("http://localhost:8000");
+    await driver.get("https://quiet-temple-57209-4355755fde60.herokuapp.com/");
     await driver.wait(until.titleIs("Duel Duo"), 1000);
   });
 
   test("TWO: Draw button displays choices", async () => {
-    await driver.get("http://localhost:8000");
+    await driver.get("https://quiet-temple-57209-4355755fde60.herokuapp.com/");
 // Check that the choices div is initially empty
     const choicesElement = await driver.findElement(By.id("choices"));
     const initialChoicesText = await choicesElement.getText();
@@ -34,7 +34,7 @@ describe("Duel Duo tests", () => {
     expect(updatedChoicesText.trim()).not.toBe("");
   });
   test("THREE: USer can only select 2 bots", async () => {
-    await driver.get("http://localhost:8000");
+    await driver.get("https://quiet-temple-57209-4355755fde60.herokuapp.com/");
 // Click "Draw" and find choices
     const drawButton = await driver.findElement(By.id("draw"));
     await drawButton.click();
