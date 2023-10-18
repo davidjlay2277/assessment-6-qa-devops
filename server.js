@@ -82,11 +82,11 @@ app.post("/api/duel", (req, res) => {
 
     // comparing the total health to determine a winner
     if (compHealth > playerHealth) {
-      Rollbar.info("CPU is the winner")
+      rollbar.info("CPU is the winner")
       playerRecord.losses += 1;
       res.status(200).send("You lost!");
     } else {
-      Rollbar.info("User is the winner")
+      rollbar.info("User is the winner")
       playerRecord.losses += 1;
       res.status(200).send("You won!");
     }
