@@ -54,6 +54,7 @@ app.get("/api/robots", (req, res) => {
     res.status(200).send(botsArr);
   } catch (error) {
     console.error("ERROR GETTING BOTS", error);
+    rollbar.error("ERROR GETTING BOTS", {error});
     res.sendStatus(400);
   }
 });
@@ -64,11 +65,13 @@ app.get("/api/robots/shuffled", (req, res) => {
     res.status(200).send(shuffled);
   } catch (error) {
     console.error("ERROR GETTING SHUFFLED BOTS", error);
+    rollbar.error("Error getting shuffled bots", {error});
     res.sendStatus(400);
   }
 });
 
 app.post("/api/duel", (req, res) => {
+  rollbar.info("Duel started")
   try {
     const { compDuo, playerDuo } = req.body;
 
@@ -79,9 +82,11 @@ app.post("/api/duel", (req, res) => {
 
     // comparing the total health to determine a winner
     if (compHealth > playerHealth) {
+      Rollbar.log("CPU is the winner")
       playerRecord.losses += 1;
       res.status(200).send("You lost!");
     } else {
+      Rollbar.log("User is the winner")
       playerRecord.losses += 1;
       res.status(200).send("You won!");
     }
