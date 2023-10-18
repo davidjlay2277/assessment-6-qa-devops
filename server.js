@@ -116,6 +116,6 @@ app.use(rollbar.errorHandler());
 
 app.listen(PORT || 8000, () => {
   console.log(`Listening on ${PORT}`);
-  rollbar.info('Duel Duo App initiated');
+  rollbar.info('Duel Duo App started');
 
 });
